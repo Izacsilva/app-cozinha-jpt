@@ -3,12 +3,6 @@
   <head>
     <style>
 @charset "UTF-8";
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-}
-
 .app-container {
   width: 100%;
   min-width: 375px; /* Mobile viewport width */
@@ -18,6 +12,28 @@
   padding-bottom: 100px; /* Space for bottom navigation */
 }
 
+@media (max-width: 475px) {
+  .dish-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .card-dishes-content {
+    flex-direction: column-reverse;
+  }
+  .dish-info {
+    flex: none;
+  }
+  .dish-image-container {
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 975px) {
+  .list-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 /* Global Styles */
 :root {
   --page-background: #FDFBF7;
@@ -45,6 +61,49 @@ body {
   font-size: 1.6rem;
   background-color: var(--page-background);
   color: var(--text-color);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--surface-color);
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-secondary-color);
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: color 0.3s ease;
+}
+
+.nav-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item.active i {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  padding: 6px;
+  border-radius: 8px;
 }
 
 .search-bar {
@@ -75,6 +134,145 @@ body {
   color: var(--primary-color);
 }
 
+.dish-cards-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.list-cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.dish-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.kitchens-dishes-label {
+  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+}
+
+.card-dishes-content {
+  display: flex;
+  gap: 16px;
+}
+
+.dish-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 6px 0;
+}
+
+.dish-description {
+  font-size: 13px;
+  color: var(--text-secondary-color);
+  margin: 0 0 10px 0;
+}
+
+.dietary-labels {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dietary-item {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.dietary-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: var(--accent-color); /* Default color */
+}
+
+.dietary-indicator.blue {
+  background-color: #38bdf8; /* Light blue */
+}
+
+.dietary-indicator.red {
+  background-color: #ef4444; /* Red */
+}
+
+.dietary-indicator.orange {
+  background-color: #f59e0b; /* Orange */
+}
+
+.dish-image-container {
+  flex: 1;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.dish-image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Create Menu Button */
+.create-menu-button {
+  max-width: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  padding: 24px 20px;
+  margin: 0 auto;
+  border-radius: 8px; /* Significantly rounded corners */
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(53, 126, 95, 0.3); /* Subtle shadow with primary color */
+  transition: background-color 0.3s ease;
+}
+
+.create-menu-button:hover {
+  background-color: #2e7054; /* Darker shade on hover */
+}
+
+.create-menu-button i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
 /* cabeçalho */
 .app-header {
   width: 100%;
@@ -89,6 +287,29 @@ body {
   z-index: 1000;
   box-shadow: 0 4px 8px 0 rgba(199, 183, 151, 0.35);
   margin-bottom: 32px;
+}
+
+.add-dish-section {
+  width: 100%;
+  padding: 0 16px;
+  margin-bottom: 32px;
+}
+
+.add-dish-section .add-dish-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.add-dish-section span {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: #6E7D75;
+  line-height: 26px;
 }
 
 button {
@@ -137,10 +358,141 @@ button {
       <input type="text" placeholder="Buscar prato" />
     </div>
 </section>
-    <main>
-      <h1>Bem-vindo à Cozinha JPT</h1>
-    </main>
+    <section class="add-dish-section">
+    <button type="button" class="add-dish-button">
+
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18 9C18 9.41421 17.6642 9.75 17.25 9.75H9.75V17.25C9.75 17.6642 9.41421 18 9 18C8.58579 18 8.25 17.6642 8.25 17.25V9.75H0.75C0.335786 9.75 0 9.41421 0 9C0 8.58579 0.335786 8.25 0.75 8.25H8.25V0.75C8.25 0.335786 8.58579 0 9 0C9.41421 0 9.75 0.335786 9.75 0.75V8.25H17.25C17.6642 8.25 18 8.58579 18 9Z" fill="#6E7D75"/>
+      </svg>
+        
+      <span>Adicionar novo prato</span>
+      
+    </button>
+  </section>
+    <main class="dish-cards-section">
+    <ul class="list-cards">
+
+      <li class="card-item">
+        <section class="kitchens-dishes-label">
+          <p>Cozinha Taboa</p>
+        </section>
+        <section class="card-dishes-content">
+          <div class="dish-info">
+            <h3 class="dish-title">Spicy Chicken Tacos</h3>
+            <p class="dish-description">Mexican, Tacos, Spicy</p>
+            <div class="dietary-labels">
+              <span class="dietary-item"
+                ><i class="dietary-indicator blue"></i>Leite</span
+              >
+              <span class="dietary-item"
+                ><i class="dietary-indicator red"></i>Glúten</span
+              >
+              <span class="dietary-item"
+                ><i class="dietary-indicator orange"></i>Ovo</span
+              >
+            </div>
+          </div>
+          <div class="dish-image-container">
+            <img
+              src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Spicy Chicken Tacos"
+            />
+          </div>
+        </section>
+      </li>
+
+      <li class="card-item">
+        <section class="kitchens-dishes-label">
+          <p>Cozinha Taboa</p>
+        </section>
+        <section class="card-dishes-content">
+          <div class="dish-info">
+            <h3 class="dish-title">Spicy Chicken Tacos</h3>
+            <p class="dish-description">Mexican, Tacos, Spicy</p>
+            <div class="dietary-labels">
+              <span class="dietary-item"
+                ><i class="dietary-indicator blue"></i>Leite</span
+              >
+              <span class="dietary-item"
+                ><i class="dietary-indicator red"></i>Glúten</span
+              >
+              <span class="dietary-item"
+                ><i class="dietary-indicator orange"></i>Ovo</span
+              >
+            </div>
+          </div>
+          <div class="dish-image-container">
+            <img
+              src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="Spicy Chicken Tacos"
+            />
+          </div>
+        </section>
+      </li>
+
+    </ul>
+  </main>
+
+  <div class="create-menu-button">
+    <i class="fas fa-plus"></i>
+    <span>Criar cardápio</span>
+  </div>
+
+    <footer class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5 20.4997V12.4997C13.5 12.2345 13.3946 11.9802 13.2071 11.7926C13.0196 11.6051 12.7652 11.4997 12.5 11.4997H8.5C8.23478 11.4997 7.98043 11.6051 7.79289 11.7926C7.60536 11.9802 7.5 12.2345 7.5 12.4997V20.4997M1.5 9.49972C1.49993 9.20879 1.56333 8.92135 1.68579 8.65744C1.80824 8.39353 1.9868 8.15952 2.209 7.97172L9.209 1.97272C9.56999 1.66763 10.0274 1.50024 10.5 1.50024C10.9726 1.50024 11.43 1.66763 11.791 1.97272L18.791 7.97172C19.0132 8.15952 19.1918 8.39353 19.3142 8.65744C19.4367 8.92135 19.5001 9.20879 19.5 9.49972V18.4997C19.5 19.0302 19.2893 19.5389 18.9142 19.9139C18.5391 20.289 18.0304 20.4997 17.5 20.4997H3.5C2.96957 20.4997 2.46086 20.289 2.08579 19.9139C1.71071 19.5389 1.5 19.0302 1.5 18.4997V9.49972Z" stroke="#86968F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        
+      <span>Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.1644 3H15.1644C15.6948 3 16.2035 3.21071 16.5786 3.58579C16.9537 3.96086 17.1644 4.46957 17.1644 5V19C17.1644 19.5304 16.9537 20.0391 16.5786 20.4142C16.2035 20.7893 15.6948 21 15.1644 21H3.16438C2.63395 21 2.12524 20.7893 1.75017 20.4142C1.3751 20.0391 1.16438 19.5304 1.16438 19V5C1.16438 4.46957 1.3751 3.96086 1.75017 3.58579C2.12524 3.21071 2.63395 3 3.16438 3H5.16438M9.16438 10H13.1644M9.16438 15H13.1644M5.16438 10H5.17438M5.16438 15H5.17438M6.16438 1H12.1644C12.7167 1 13.1644 1.44772 13.1644 2V4C13.1644 4.55228 12.7167 5 12.1644 5H6.16438C5.6121 5 5.16438 4.55228 5.16438 4V2C5.16438 1.44772 5.6121 1 6.16438 1Z" stroke="#86968F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        
+      <span>Registros</span>
+    </a>
+    <a href="#" class="nav-item">
+      <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.8288 6C12.8288 5.44 14.6088 4 16.8288 4C18.1243 3.9758 19.3768 4.46467 20.3134 5.36005C21.25 6.25543 21.7947 7.48472 21.8288 8.78C21.8288 13 18.8288 21 15.8288 21C14.5788 21 13.3288 19.94 11.8288 19.94C10.3288 19.94 9.07877 21 7.82877 21C4.82877 21 1.82877 13 1.82877 8.78C1.86024 7.48385 2.40413 6.25302 3.3413 5.35708C4.27847 4.46115 5.53252 3.97316 6.82877 4C9.04877 4 10.8288 5.44 11.8288 6ZM11.8288 6C11.8288 3 10.8288 1.5 9.82877 1" stroke="#86968F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        
+      <span>Itens</span>
+    </a>
+    <a href="#" class="nav-item active">
+      <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.49526 15.002H16.4953M15.4953 19.002C15.7605 19.002 16.0148 18.8966 16.2024 18.7091C16.3899 18.5216 16.4953 18.2672 16.4953 18.002V12.652C16.4953 12.195 16.8113 11.808 17.2223 11.611C18.0732 11.205 18.7535 10.5115 19.1429 9.65287C19.5323 8.79421 19.6059 7.82558 19.3507 6.91794C19.0955 6.0103 18.5278 5.22199 17.7479 4.69213C16.9681 4.16227 16.0261 3.92492 15.0883 4.02198C14.702 3.12419 14.0611 2.35928 13.2448 1.82182C12.4285 1.28436 11.4726 0.997925 10.4953 0.997925C9.51791 0.997925 8.56199 1.28436 7.74569 1.82182C6.92939 2.35928 6.2885 3.12419 5.90226 4.02198C4.96484 3.9256 4.0235 4.16328 3.24419 4.69312C2.46489 5.22295 1.89767 6.01092 1.64255 6.91808C1.38742 7.82525 1.46077 8.79336 1.84967 9.65173C2.23856 10.5101 2.91802 11.2036 3.76826 11.61C4.17926 11.808 4.49526 12.195 4.49526 12.651V18.002C4.49526 18.2672 4.60062 18.5216 4.78815 18.7091C4.97569 18.8966 5.23004 19.002 5.49526 19.002H15.4953Z" stroke="#357E5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        
+      <span>Pratos</span>
+    </a>
+  </footer>
     
     </div>
+
+    <script>
+      function exibirNomes(nomesDosPratos) {
+        const listDePratos = document.querySelector(".list-cards");
+
+
+
+        nomesDosPratos.forEach(nome => {
+          const itemDaLista = document.createElement('li');
+
+          itemDaLista.textContent = nome;
+
+          listDePratos.appendChild(itemDaLista);
+        })
+
+        return listDePratos;
+      }
+
+      // exibirNomes(["Salsichas ao molho", "Queijo"])
+
+      google.script.run.withSuccessHandler(exibirNomes).getNomePrato();
+
+    </script>
+
   </body>
 </html>

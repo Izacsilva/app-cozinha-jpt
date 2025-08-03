@@ -1,11 +1,5 @@
 <style>
 @charset "UTF-8";
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-}
-
 .app-container {
   width: 100%;
   min-width: 375px; /* Mobile viewport width */
@@ -15,6 +9,28 @@
   padding-bottom: 100px; /* Space for bottom navigation */
 }
 
+@media (max-width: 475px) {
+  .dish-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .card-dishes-content {
+    flex-direction: column-reverse;
+  }
+  .dish-info {
+    flex: none;
+  }
+  .dish-image-container {
+    width: 100%;
+    height: 150px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 975px) {
+  .list-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 /* Global Styles */
 :root {
   --page-background: #FDFBF7;
@@ -42,6 +58,49 @@ body {
   font-size: 1.6rem;
   background-color: var(--page-background);
   color: var(--text-color);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--surface-color);
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-secondary-color);
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: color 0.3s ease;
+}
+
+.nav-item i {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item.active i {
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  padding: 6px;
+  border-radius: 8px;
 }
 
 .search-bar {
@@ -72,6 +131,145 @@ body {
   color: var(--primary-color);
 }
 
+.dish-cards-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.list-cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.dish-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.kitchens-dishes-label {
+  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+}
+
+.card-dishes-content {
+  display: flex;
+  gap: 16px;
+}
+
+.dish-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 6px 0;
+}
+
+.dish-description {
+  font-size: 13px;
+  color: var(--text-secondary-color);
+  margin: 0 0 10px 0;
+}
+
+.dietary-labels {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dietary-item {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.dietary-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background-color: var(--accent-color); /* Default color */
+}
+
+.dietary-indicator.blue {
+  background-color: #38bdf8; /* Light blue */
+}
+
+.dietary-indicator.red {
+  background-color: #ef4444; /* Red */
+}
+
+.dietary-indicator.orange {
+  background-color: #f59e0b; /* Orange */
+}
+
+.dish-image-container {
+  flex: 1;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.dish-image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Create Menu Button */
+.create-menu-button {
+  max-width: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--surface-color);
+  padding: 24px 20px;
+  margin: 0 auto;
+  border-radius: 8px; /* Significantly rounded corners */
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(53, 126, 95, 0.3); /* Subtle shadow with primary color */
+  transition: background-color 0.3s ease;
+}
+
+.create-menu-button:hover {
+  background-color: #2e7054; /* Darker shade on hover */
+}
+
+.create-menu-button i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
 /* cabeçalho */
 .app-header {
   width: 100%;
@@ -86,6 +284,29 @@ body {
   z-index: 1000;
   box-shadow: 0 4px 8px 0 rgba(199, 183, 151, 0.35);
   margin-bottom: 32px;
+}
+
+.add-dish-section {
+  width: 100%;
+  padding: 0 16px;
+  margin-bottom: 32px;
+}
+
+.add-dish-section .add-dish-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.add-dish-section span {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: #6E7D75;
+  line-height: 26px;
 }
 
 button {
