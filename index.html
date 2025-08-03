@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <style>
+@charset "UTF-8";
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.app-container {
+  width: 100%;
+  min-width: 375px; /* Mobile viewport width */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 100px; /* Space for bottom navigation */
+}
+
+/* Global Styles */
+:root {
+  --page-background: #FDFBF7;
+  --primary-color: #357E5F;
+  --secondary-color: #38bdf8; /* Example secondary color */
+  --accent-color: #f472b6; /* Example accent color */
+  --surface-color: #FFFFFF;
+  --text-color: #171717;
+  --text-secondary-color: #A3A3A3;
+  --border-color: #2F2F2F;
+  --search-bg: #FFFFFF;
+  --header-bg: #fff;
+  --font-primary: "Plus Jakarta Sans", sans-serif;
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  background-color: var(--page-background);
+  color: var(--text-color);
+}
+
+.search-bar {
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.search-bar .search-element {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #E5F5F0;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  color: var(--text-color);
+}
+
+.search-bar input::placeholder {
+  font-family: var(--font-primary);
+  font-weight: normal;
+  color: var(--primary-color);
+}
+
+/* cabeçalho */
+.app-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--header-bg);
+  color: var(--text-color); /* Changed text color to contrast with white header */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px 0 rgba(199, 183, 151, 0.35);
+  margin-bottom: 32px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background: #1f77ff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+    <meta charset="UTF-8" />
+<title>App Cozinha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+  </head>
+  <body>
+    <div class="app-container">
+    <header class="app-header">
+    <div class="header-left">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 16H7M21 22H7M25 10H7" stroke="#86968F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+          
+      </div>
+      <div class="header-right">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 24C22 22.4087 21.3679 20.8826 20.2426 19.7574C19.1174 18.6321 17.5913 18 16 18M16 18C14.4087 18 12.8826 18.6321 11.7574 19.7574C10.6321 20.8826 10 22.4087 10 24M16 18C18.2091 18 20 16.2091 20 14C20 11.7909 18.2091 10 16 10C13.7909 10 12 11.7909 12 14C12 16.2091 13.7909 18 16 18ZM26 16C26 21.5228 21.5228 26 16 26C10.4772 26 6 21.5228 6 16C6 10.4772 10.4772 6 16 6C21.5228 6 26 10.4772 26 16Z" stroke="#86968F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+          
+      </div>
+</header>
+    <section class="search-bar">
+    <div class="search-element">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 21L16.66 16.66M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="#357E5F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+        
+      <input type="text" placeholder="Buscar prato" />
+    </div>
+</section>
+    <main>
+      <h1>Bem-vindo à Cozinha JPT</h1>
+    </main>
+    
+    </div>
+  </body>
+</html>

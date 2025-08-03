@@ -1,0 +1,16 @@
+# Ignora os arquivos de estilo individuais
+src/styles/**
+src/style.html
+src/styles/header.html
+src/styles/main.html
+src/styles/navbottom.html
+src/styles/styles.css.html
+src/index.html
+
+# Ignora arquivos desnecessários no projeto
+node_modules/**
+build-styles.js
+build-html.js
+package.json
+package-lock.json
+README.md

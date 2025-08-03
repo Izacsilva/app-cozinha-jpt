@@ -1,0 +1,29 @@
+  
+  .search-bar {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .search-bar .search-element {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #E5F5F0;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    
+  }
+  
+  .search-bar input::placeholder {
+    font-family: var(--font-primary);
+    font-weight: normal;
+    color: var(--primary-color);
+  }
