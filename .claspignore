@@ -14,3 +14,5 @@ build-html.js
 package.json
 package-lock.json
 README.md
+index-backup.html
+code-backup.js
