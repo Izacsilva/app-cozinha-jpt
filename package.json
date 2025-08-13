@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "Code.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node build-styles.js && node build-html.js",
-    "push": "npm run build && clasp push"
+    "push": "npm run build && clasp push",
+    "build:gs": "esbuild apps-script/src/main.js --bundle --outfile=apps-script/dist/code.js --format=iife"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "fs-extra": "^11.3.0",
     "glob": "^11.0.3",
     "sass": "^1.89.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.9"
   }
 }

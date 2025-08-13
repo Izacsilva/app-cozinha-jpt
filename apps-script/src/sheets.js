@@ -1,1 +1,4 @@
-// Funções de baixo nível para interagir com o Google Sheets.
+
+export default function salvarNoSheet() {
+    return "sheets"
+  }
